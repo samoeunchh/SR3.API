@@ -77,12 +77,16 @@ namespace SR3.API.Controllers
         [HttpPost]
         public async Task<ActionResult<Customer>> PostCustomer(Customer customer)
         {
+            if (await IsPhoneNumberExist(customer.Mobile)) 
+                return BadRequest("This phone number is already exist");
+            customer.CustomerId = Guid.NewGuid();
             _context.Customer.Add(customer);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetCustomer", new { id = customer.CustomerId }, customer);
         }
-
+        private async Task<bool> IsPhoneNumberExist(string number) =>
+            await _context.Customer.AnyAsync(x => x.Mobile.Equals(number));
         // DELETE: api/Customers/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCustomer(Guid id)
