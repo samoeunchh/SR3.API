@@ -89,5 +89,31 @@ namespace SR3.PresentationDesktop
                 MessageBox.Show(msg);
             }
         }
+
+        private async void button2_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count > 0)
+            {
+                var result = MessageBox.Show("Do you want to delete this record?", 
+                    "Confirmation", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    var id = listView1.SelectedItems[0].Text;
+                    HttpResponseMessage respone = await client.DeleteAsync("api/customers/"+ id);
+                    if (respone.IsSuccessStatusCode)
+                    {
+                        MessageBox.Show("The record was deleted");
+                        Form1_Load(sender, e);
+                    }
+                    else
+                    {
+                        var msg = respone.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+                        MessageBox.Show(msg);
+                    }
+                }
+            }
+            else
+                MessageBox.Show("Please select an item");
+        }
     }
 }

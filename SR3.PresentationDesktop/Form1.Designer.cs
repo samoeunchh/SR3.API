@@ -44,6 +44,7 @@ namespace SR3.PresentationDesktop
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listView1
@@ -172,11 +173,22 @@ namespace SR3.PresentationDesktop
             this.label4.TabIndex = 9;
             this.label4.Text = "Address";
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(445, 190);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(82, 33);
+            this.button2.TabIndex = 10;
+            this.button2.Text = "Delete";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1018, 488);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -212,6 +224,7 @@ namespace SR3.PresentationDesktop
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button2;
     }
 }
 
