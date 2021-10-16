@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SR3.API.Models;
+using SR3.DaraLayer;
 
 namespace SR3.API.Controllers
 {

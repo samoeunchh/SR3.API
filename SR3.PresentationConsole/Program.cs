@@ -9,7 +9,7 @@ namespace SR3.PresentationConsole
 {
     class Program
     {
-        static readonly HttpClient client = new HttpClient();
+        static readonly HttpClient client = new();
         static void Main()
         {
             client.BaseAddress = new Uri("http://localhost:48459/");

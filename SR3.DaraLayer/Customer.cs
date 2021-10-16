@@ -1,13 +1,13 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace SR3.API.Models
+namespace SR3.DaraLayer
 {
     public class Customer
     {
         [Key]
         public Guid CustomerId { get; set; }
-        [Required(ErrorMessage ="Customer name is required")]
+        [Required(ErrorMessage = "Customer name is required")]
         [MaxLength(50)]
         public string CustomerName { get; set; }
         [Required]
